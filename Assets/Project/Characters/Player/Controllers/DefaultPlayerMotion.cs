@@ -26,8 +26,8 @@ namespace Assets.Scenes.Characters.Player.Controllers
 
             Vector3 movement = new Vector3(horizontalMovement, 0.0f, verticalMovement);
             Vector3 newPosition = _rigidbody.position + movement * Time.fixedDeltaTime * (isCrouched ? _crouchedSpeed : _speed);
-            //Vector3 clampedPosition = _transform.TransformDirection(Vector3.ClampMagnitude(newPosition - _rigidbody.position, Time.fixedDeltaTime * _speed));
-            Vector3 clampedPosition = Vector3.ClampMagnitude(newPosition - _rigidbody.position, Time.fixedDeltaTime * _speed);
+            Vector3 clampedPosition = _transform.TransformDirection(Vector3.ClampMagnitude(newPosition - _rigidbody.position, Time.fixedDeltaTime * _speed));
+            //Vector3 clampedPosition = Vector3.ClampMagnitude(newPosition - _rigidbody.position, Time.fixedDeltaTime * _speed);
 
             if (movement.magnitude != 0)
             {
